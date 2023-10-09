@@ -20,6 +20,7 @@ TagManager:
   - sensorG2
   - mensagem
   - chao
+  - coletavelMaca
   layers:
   - Default
   - TransparentFX

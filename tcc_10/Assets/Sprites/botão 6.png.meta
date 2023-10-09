@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +139,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "bot\xE3o 6_1"
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 853
+        width: 1556
+        height: 1485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793aa58324ad647488e3cc8547cb51bd
+      internalID: -1120972979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "bot\xE3o 6_10"
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 817
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524bc789ad87b514cb52c8b0a5649b28
+      internalID: 1219503293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +192,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "bot\xE3o 6_10": 1219503293
+      "bot\xE3o 6_0": 2014036867
+      "bot\xE3o 6_5": 1277011712
+      "bot\xE3o 6_4": -638103287
+      "bot\xE3o 6_3": -575153471
+      "bot\xE3o 6_2": -1531605907
+      "bot\xE3o 6_1": -1120972979
+      "bot\xE3o 6_6": 1172159969
+      "bot\xE3o 6_8": -2139833759
+      "bot\xE3o 6_7": -1778029237
+      "bot\xE3o 6_9": 1361093647
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

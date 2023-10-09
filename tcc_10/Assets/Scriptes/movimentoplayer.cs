@@ -62,6 +62,12 @@ public class movimentoplayer : MonoBehaviour {
     public GameObject MunicaoColetavel;
 
     public float forcaBombaX, forcaBombaY;
+
+    public int quantidadeMunicao;
+
+    public Button municaoBomba;
+
+    public TextMeshProUGUI textoMunicaoBomba;
     
     void Start() {
         inimigoR = FindObjectOfType(typeof(inimigoR)) as inimigoR;
@@ -76,6 +82,10 @@ public class movimentoplayer : MonoBehaviour {
         tempoInicial = 100;
 
         btnMunicao.interactable = false;
+
+        quantidadeMunicao = 0;
+
+        municaoBomba.interactable = false;
     }
 
     void Update()
@@ -115,7 +125,17 @@ public class movimentoplayer : MonoBehaviour {
             _playerMovimento.speed = 0;
             morrer = true;
         }
+
+        if (collision.gameObject.tag == "inimigo")
+        {
+
+            painelGameOver.SetActive(true);
+
+            Debug.Log("Matou inimigo");
+        }
+
     }
+
 
     private void OnTriggerEnter2D(Collider2D col) {
 
@@ -150,13 +170,24 @@ public class movimentoplayer : MonoBehaviour {
 
         if (col.gameObject.tag == "Morte")
         {
+           
             painelGameOver.SetActive(true);
         }
 
+ 
         if (col.gameObject.tag == "municao")
         {
             btnMunicao.interactable = true;
             Destroy(MunicaoColetavel.gameObject);
+        }
+
+        if(col.gameObject.tag == "coletavelMaca")
+        {
+            quantidadeMunicao++;
+            municaoBomba.interactable = true;
+            textoMunicaoBomba.text = quantidadeMunicao.ToString();
+            Destroy(col.gameObject);
+
         }
     }
 
@@ -172,15 +203,28 @@ public class movimentoplayer : MonoBehaviour {
 
     public void tiro()
     {
-        anim.SetTrigger("Tiro");
+        // anim.SetTrigger("Tiro");
+
+        TiroPlayerParado();
         SomdoTiro.Play();
     }
 
     public void bomba() 
     {
-        GameObject Temporario = Instantiate(bombaM, posicaoProjetil.position, Quaternion.identity);
-        Temporario.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaBombaX, forcaBombaY));
-        SomdoBomba.Play();
+        if(quantidadeMunicao <= 0)
+        {
+            municaoBomba.interactable = false;
+        }
+        else if(quantidadeMunicao  > 0)
+        {
+
+            quantidadeMunicao--;
+            GameObject Temporario = Instantiate(bombaM, posicaoProjetil.position, Quaternion.identity);
+            Temporario.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaBombaX, forcaBombaY));
+            SomdoBomba.Play();
+           
+        }
+       
     }
 
     public void TiroPlayerParado()
