@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
    public void IniciarJogo()
     {
         SceneManager.LoadScene("Introdução");
@@ -23,5 +24,11 @@ public class Menu : MonoBehaviour
     public void ReiniciarJogo()
     {
         SceneManager.LoadScene("Jogo");
+    }
+
+    public void InstrucoesJogo()
+    {
+        SceneManager.LoadScene("Config");
+        
     }
 }
