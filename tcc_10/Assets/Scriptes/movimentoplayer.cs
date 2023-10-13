@@ -68,12 +68,16 @@ public class movimentoplayer : MonoBehaviour {
     public Button municaoBomba;
 
     public TextMeshProUGUI textoMunicaoBomba;
-    
+
+
+
     void Start() {
         inimigoR = FindObjectOfType(typeof(inimigoR)) as inimigoR;
         _playerMovimento = FindObjectOfType(typeof(playermovement)) as playermovement;
         _button = FindObjectOfType(typeof(button)) as button;
-  
+
+     
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         painelGameOver.SetActive(false);

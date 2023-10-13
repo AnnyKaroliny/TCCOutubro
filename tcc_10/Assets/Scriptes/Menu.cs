@@ -2,11 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    public Slider teste;
 
-   public void IniciarJogo()
+
+    public AudioSource testeMusica;
+
+
+    private void Start()
+    {
+        teste.value = 1;
+    }
+    private void Update()
+    {
+        testeMusica.volume = teste.value;
+    }
+
+    public void IniciarJogo()
     {
         SceneManager.LoadScene("Introdução");
     }
