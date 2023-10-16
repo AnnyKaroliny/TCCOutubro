@@ -21,6 +21,7 @@ TagManager:
   - mensagem
   - chao
   - coletavelMaca
+  - Rosquinha
   layers:
   - Default
   - TransparentFX

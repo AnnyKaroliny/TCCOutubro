@@ -31,5 +31,13 @@ public class tiro : MonoBehaviour
 
             Instantiate(animacaoBomba, transform.position, Quaternion.identity);
         }
+
+        if (collision.gameObject.tag == "Rosquinha")
+        {
+
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+
     }
 }

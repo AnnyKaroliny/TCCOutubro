@@ -2069,6 +2069,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4349688172489798120, guid: e16bbd05be1f09840b746293af2fd1c1, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349688172489798120, guid: e16bbd05be1f09840b746293af2fd1c1, type: 3}
       propertyPath: velocidade
       value: 10
       objectReference: {fileID: 0}
@@ -2582,6 +2586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e81687d7c2ad84ebedb281fb38c923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teste: {fileID: 0}
+  testeMusica: {fileID: 0}
 --- !u!1001 &1404704242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2595,11 +2601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2216591787359699320, guid: 1fc359444021d7d409af7593c733cee5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 2216591787359699320, guid: 1fc359444021d7d409af7593c733cee5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 2216591787359699320, guid: 1fc359444021d7d409af7593c733cee5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2927,6 +2933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e81687d7c2ad84ebedb281fb38c923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teste: {fileID: 0}
+  testeMusica: {fileID: 0}
 --- !u!1 &1549370831
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,6 +3579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e81687d7c2ad84ebedb281fb38c923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teste: {fileID: 0}
+  testeMusica: {fileID: 0}
 --- !u!1 &1941178329
 GameObject:
   m_ObjectHideFlags: 0

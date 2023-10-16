@@ -143,6 +143,11 @@ public class movimentoplayer : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col) {
 
+
+        if(col.gameObject.tag == "Rosquinha")
+        {
+            painelGameOver.SetActive(true);
+        }
         if (col.gameObject.tag == "Moedas") {
 
             moedas += 1;
@@ -151,7 +156,7 @@ public class movimentoplayer : MonoBehaviour {
             SomdoMoeda.Play();
         }
 
-        if (col.gameObject.tag == "inimigoR" && morrer == false) {
+        if (col.gameObject.tag == "inimigoR") {
 
             anim.SetTrigger("Die");
             jumpForce = 0;

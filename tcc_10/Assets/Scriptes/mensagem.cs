@@ -34,6 +34,7 @@ public class mensagem : MonoBehaviour
         if (collision.gameObject.tag == "mensagem")
         {
             painelmensagem.SetActive(false);
+            btnMensagem.SetActive(false);
         }
     }
 

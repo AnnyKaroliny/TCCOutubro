@@ -6,6 +6,7 @@ public class BotaoTransicao : MonoBehaviour
 {
     public GameObject[] cenas;
     public int contador;
+    public GameObject button;
 
 
     void Start()
@@ -15,14 +16,23 @@ public class BotaoTransicao : MonoBehaviour
 
     public void proximaCena()
     {
-        contador = contador + 1;
-       
-        cenas[contador].SetActive(true);
+        if(contador < 32)
+        {
+            contador = contador + 1;
+
+            cenas[contador].SetActive(true);
+
+        }else
+        {
+            button.SetActive(false);
+        }
+      
 
     }
 
     public void voltarCena()
     {
+        
         cenas[contador].SetActive(false);
         contador = contador - 1;
        
