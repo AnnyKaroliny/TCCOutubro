@@ -7,18 +7,16 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     public Slider teste;
-
-
     public AudioSource testeMusica;
-
 
     private void Start()
     {
+        testeMusica = GetComponent<AudioSource>();
         teste.value = 1;
     }
     private void Update()
     {
-        testeMusica.volume = teste.value;
+        //testeMusica.volume = teste.value;
     }
 
     public void IniciarJogo()
