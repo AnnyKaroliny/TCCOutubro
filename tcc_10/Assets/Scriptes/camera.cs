@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class camera : MonoBehaviour {
-    public Transform target;
+    
     public float smoothSpeed = 0.125f;
+    public Transform target;
     public Transform LimiteCamera;
     public Transform posicaoPlayer;
     private Vector3 offset;
-    void Start() {
+    
+    void Start()
+    {
         offset = transform.position - target.position;
     }
 
-    void Update() {
-
+    void Update()
+    {
         if (posicaoPlayer.transform.position.x < LimiteCamera.position.x) {
 
             smoothSpeed = 0;
-
         }
         else if (posicaoPlayer.position.x > LimiteCamera.position.x) {
 

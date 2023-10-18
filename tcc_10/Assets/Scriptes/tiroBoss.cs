@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class tiroBoss : MonoBehaviour
 {
+    public float fireRate = 2.0f; // taxa de tiro por segundo
+    public float velocidade;
+    private float nextfireTime;
+    private Rigidbody2D rb;
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireRate = 2.0f; // taxa de tiro por segundo
-    private Rigidbody2D rb;
     public Transform posicaoPlayer;
     public Transform posicaoInicialInimigo;
-    public float velocidade;
-
-    private float nextfireTime;
-
 
     private void Start()
     {
         nextfireTime = Time.time + 1.0f / fireRate;
         rb = GetComponent<Rigidbody2D>();
-       
-
     }
-
+       
     private void Update()
     {
         if (Time.time >= nextfireTime)
@@ -30,23 +26,17 @@ public class tiroBoss : MonoBehaviour
             shoot();
             nextfireTime = Time.time + 1.0f / fireRate;
         }
-
-
         StartCoroutine(atacarInimigo());
-
     }
 
     private void shoot()
     {
         // cria uma instancia (bala) no ponto de disparo
-       Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-       
+       Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);       
     }
 
     IEnumerator atacarInimigo()
     {
-
-
         yield return new WaitForSeconds(2f);
 
         transform.position = Vector2.MoveTowards(transform.position, posicaoPlayer.position, velocidade * Time.deltaTime);
@@ -62,8 +52,5 @@ public class tiroBoss : MonoBehaviour
             shoot();
             nextfireTime = Time.time + 1.0f / fireRate;
         }
-
     }
-
-
 }

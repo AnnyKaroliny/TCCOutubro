@@ -5,8 +5,11 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-public class movimentoplayer : MonoBehaviour {
+using UnityEngine.SceneManagement;
 
+
+public class movimentoplayer : MonoBehaviour
+{
     private inimigoR inimigoR;
     private playermovement _playerMovimento;
     private button _button;
@@ -33,11 +36,11 @@ public class movimentoplayer : MonoBehaviour {
 
     [Header("Conf Coletáveis")]
     public int moedas;
-    public TextMeshProUGUI textoMoedas;
     private int maca;
-    public TextMeshProUGUI textomaca;
     private int agua;
-    public TextMeshProUGUI textoagua;
+    public TextMeshProUGUI textoMoedas;
+    public TextMeshProUGUI textoBomba;
+    public TextMeshProUGUI textoAgua;
 
     [Header("Paineis Informações")]
     public GameObject historia;
@@ -52,43 +55,36 @@ public class movimentoplayer : MonoBehaviour {
     public bool morrer;
     public GameObject painelGameOver;
 
-    public AudioSource SomdoPulo;
-    public AudioSource SomdoMoeda;
-    public AudioSource SomdoTiro;
-    public AudioSource SomdoBomba;
-
-    public Button btnMunicao;
-
-    public GameObject MunicaoColetavel;
-
-    public float forcaBombaX, forcaBombaY;
+    private AudioSource playerAudio;
+    public AudioClip somPulo;
+    public AudioClip somMoeda;
+    public AudioClip somTiro;
+    public AudioClip somBomba;
+    public AudioClip somVitoria, somGameOver;
 
     public int quantidadeMunicao;
-
+    public float forcaBombaX, forcaBombaY;
+    public Button btnMunicao;
     public Button municaoBomba;
-
+    public GameObject MunicaoColetavel;
     public TextMeshProUGUI textoMunicaoBomba;
 
-
-
-    void Start() {
+    void Start()
+    {
         inimigoR = FindObjectOfType(typeof(inimigoR)) as inimigoR;
         _playerMovimento = FindObjectOfType(typeof(playermovement)) as playermovement;
         _button = FindObjectOfType(typeof(button)) as button;
 
-     
+        playerAudio = GetComponent<AudioSource>();
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         painelGameOver.SetActive(false);
         morrer = false;
 
-        tempoInicial = 100;
-
+        tempoInicial = 300;
         btnMunicao.interactable = false;
-
         quantidadeMunicao = 0;
-
         municaoBomba.interactable = false;
     }
 
@@ -105,10 +101,12 @@ public class movimentoplayer : MonoBehaviour {
 
         anim.SetBool("Jump", isGrounded);
 
-        atirar();
+        textoMunicaoBomba.text = quantidadeMunicao.ToString();
+        textoMoedas.text = moedas.ToString();
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.3f, layerGround);
     }
 
@@ -132,28 +130,23 @@ public class movimentoplayer : MonoBehaviour {
 
         if (collision.gameObject.tag == "inimigo")
         {
-
             painelGameOver.SetActive(true);
-
             Debug.Log("Matou inimigo");
         }
-
     }
 
-
     private void OnTriggerEnter2D(Collider2D col) {
-
 
         if(col.gameObject.tag == "Rosquinha")
         {
             painelGameOver.SetActive(true);
         }
-        if (col.gameObject.tag == "Moedas") {
-
-            moedas += 1;
-            textoMoedas.text = moedas.ToString();
+        
+        if (col.gameObject.tag == "Moedas")
+        {
+            moedas += 1;            
             Destroy(col.gameObject);
-            SomdoMoeda.Play();
+            playerAudio.PlayOneShot(somMoeda, 3.0f) ;
         }
 
         if (col.gameObject.tag == "inimigoR") {
@@ -166,24 +159,22 @@ public class movimentoplayer : MonoBehaviour {
         if (col.gameObject.tag == "maça")
         {
             maca += 1;
-            textomaca.text = maca.ToString();
+            textoBomba.text = maca.ToString();
             Destroy(col.gameObject);
         }
 
         if (col.gameObject.tag == "agua")
         {
             agua += 1;
-            textoagua.text = agua.ToString();
+            textoAgua.text = agua.ToString();
             Destroy(col.gameObject);
         }
 
         if (col.gameObject.tag == "Morte")
-        {
-           
+        {           
             painelGameOver.SetActive(true);
         }
 
- 
         if (col.gameObject.tag == "municao")
         {
             btnMunicao.interactable = true;
@@ -194,9 +185,20 @@ public class movimentoplayer : MonoBehaviour {
         {
             quantidadeMunicao++;
             municaoBomba.interactable = true;
-            textoMunicaoBomba.text = quantidadeMunicao.ToString();
+            
             Destroy(col.gameObject);
+        }
 
+        if(col.gameObject.tag == "BossTiro")
+        {
+            painelGameOver.SetActive(true);
+            playerAudio.Stop();
+            playerAudio.PlayOneShot(somGameOver);
+        }
+
+        if(col.gameObject.tag == "FinalDaFase")
+        {
+            SceneManager.LoadScene("Jogo 1");
         }
     }
 
@@ -211,11 +213,9 @@ public class movimentoplayer : MonoBehaviour {
     }
 
     public void tiro()
-    {
-        // anim.SetTrigger("Tiro");
-
+    {       
         TiroPlayerParado();
-        SomdoTiro.Play();
+        playerAudio.PlayOneShot(somTiro);
     }
 
     public void bomba() 
@@ -226,14 +226,11 @@ public class movimentoplayer : MonoBehaviour {
         }
         else if(quantidadeMunicao  > 0)
         {
-
             quantidadeMunicao--;
             GameObject Temporario = Instantiate(bombaM, posicaoProjetil.position, Quaternion.identity);
-            Temporario.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaBombaX, forcaBombaY));
-            SomdoBomba.Play();
-           
-        }
-       
+            Temporario.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaBombaX, forcaBombaY));            
+            playerAudio.PlayOneShot(somBomba);           
+        }       
     }
 
     public void TiroPlayerParado()
@@ -246,15 +243,9 @@ public class movimentoplayer : MonoBehaviour {
     public void pulo()
     {
         if (isGrounded == true) {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-
-            SomdoPulo.Play();
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);           
+            playerAudio.PlayOneShot(somPulo, 0.35f);
         }
-    }
-
-    public void atirar()
-    {
-        
     }
 
     public void PainelGameOver()

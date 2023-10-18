@@ -6,6 +6,12 @@ public class projetilBoss : MonoBehaviour
 {
     public float moveSpeed = 5.0f; // velocidade de movimento
     public float destroyXPosition = -10.0f; // posiçao X para destruir o objeto
+    private  GameObject boss;
+
+    private void Start()
+    {
+        boss = GameObject.Find("Boss");
+    }
 
     private void Update()
     {
@@ -16,6 +22,11 @@ public class projetilBoss : MonoBehaviour
         if (transform.position.x <= destroyXPosition)
         {
             // destrua o objeto
+            Destroy(gameObject);
+        }
+
+        if(boss == null)
+        {
             Destroy(gameObject);
         }
     }
