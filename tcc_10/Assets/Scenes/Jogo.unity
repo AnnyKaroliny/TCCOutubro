@@ -1932,8 +1932,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150082841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70.6729, y: 5.0272, z: 1.5}
-  m_LocalScale: {x: 1.0658, y: 1.7921206, z: 1}
+  m_LocalPosition: {x: 70.6729, y: 5.1026, z: 1.5}
+  m_LocalScale: {x: 1.0658, y: 1.806099, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1499229637}
@@ -16444,7 +16444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3628799276272365042, guid: c2d9b722c81348540befe578f6bba610, type: 3}
       propertyPath: delay
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3628799276272365053, guid: c2d9b722c81348540befe578f6bba610, type: 3}
       propertyPath: m_Name
@@ -20907,7 +20907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3628799276272365042, guid: c2d9b722c81348540befe578f6bba610, type: 3}
       propertyPath: delay
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3628799276272365053, guid: c2d9b722c81348540befe578f6bba610, type: 3}
       propertyPath: m_Name
@@ -22085,6 +22085,8 @@ MonoBehaviour:
   somMoeda: {fileID: 0}
   somTiro: {fileID: 0}
   somBomba: {fileID: 0}
+  somVitoria: {fileID: 0}
+  somGameOver: {fileID: 0}
   quantidadeMunicao: 0
   forcaBombaX: 300
   forcaBombaY: 300
@@ -36275,13 +36277,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3628799276272365042, guid: c2d9b722c81348540befe578f6bba610, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3628799276272365053, guid: c2d9b722c81348540befe578f6bba610, type: 3}
       propertyPath: m_Name
       value: pizza
       objectReference: {fileID: 0}
     - target: {fileID: 3628799276272365053, guid: c2d9b722c81348540befe578f6bba610, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d9b722c81348540befe578f6bba610, type: 3}
