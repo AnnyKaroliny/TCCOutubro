@@ -25,6 +25,7 @@ TagManager:
   - Boss
   - BossTiro
   - FinalDaFase
+  - escudoAgua
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - inimigo
   - Player
   - ground
-  - 
+  - escudo
   - 
   - 
   - 

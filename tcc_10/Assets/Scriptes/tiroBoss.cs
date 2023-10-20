@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class tiroBoss : MonoBehaviour
 {
     public float fireRate = 2.0f; // taxa de tiro por segundo
@@ -12,27 +12,45 @@ public class tiroBoss : MonoBehaviour
     public Transform firePoint;
     public Transform posicaoPlayer;
     public Transform posicaoInicialInimigo;
+    public bool iniciaJogo;
+    private float tempo;
+    public float tempoInicial;
+    private float tempoAtual;
+    public TextMeshProUGUI textoTempo;
 
     private void Start()
     {
         nextfireTime = Time.time + 1.0f / fireRate;
         rb = GetComponent<Rigidbody2D>();
+        iniciaJogo = false;
+
+        tempoAtual = tempoInicial;
+        textoTempo.text = tempoAtual.ToString("F0");
     }
-       
+
     private void Update()
     {
-        if (Time.time >= nextfireTime)
+        if (iniciaJogo == true)
         {
-            shoot();
-            nextfireTime = Time.time + 1.0f / fireRate;
+            tempo += Time.deltaTime;
+            tempoAtual = tempoInicial - tempo;
+            textoTempo.text = tempoAtual.ToString("F0");
+
+            if (Time.time >= nextfireTime)
+            {
+                shoot();
+                nextfireTime = Time.time + 1.0f / fireRate;
+            }
+
+
+            StartCoroutine(atacarInimigo());
         }
-        StartCoroutine(atacarInimigo());
     }
 
     private void shoot()
     {
         // cria uma instancia (bala) no ponto de disparo
-       Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);       
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     IEnumerator atacarInimigo()

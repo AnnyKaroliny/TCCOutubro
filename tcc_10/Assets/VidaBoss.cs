@@ -13,6 +13,8 @@ public class VidaBoss : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Personagem");
+
+
     }
 
     // Update is called once per frame

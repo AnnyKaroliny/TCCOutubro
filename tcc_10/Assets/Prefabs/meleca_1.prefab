@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2749702488895727669}
   - component: {fileID: 7697174514471261459}
   - component: {fileID: 7262323002722458215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: meleca_1
   m_TagString: inimigo
   m_Icon: {fileID: 0}

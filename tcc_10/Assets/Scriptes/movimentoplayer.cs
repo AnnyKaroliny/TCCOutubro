@@ -69,6 +69,11 @@ public class movimentoplayer : MonoBehaviour
     public GameObject MunicaoColetavel;
     public TextMeshProUGUI textoMunicaoBomba;
 
+    public GameObject escudoAgua;
+
+    public GameObject[] partesPersonagem;
+    public bool mudarTagInimigo;
+
     void Start()
     {
         inimigoR = FindObjectOfType(typeof(inimigoR)) as inimigoR;
@@ -86,6 +91,8 @@ public class movimentoplayer : MonoBehaviour
         btnMunicao.interactable = false;
         quantidadeMunicao = 0;
         municaoBomba.interactable = false;
+
+       
     }
 
     void Update()
@@ -165,9 +172,10 @@ public class movimentoplayer : MonoBehaviour
 
         if (col.gameObject.tag == "agua")
         {
-            agua += 1;
-            textoAgua.text = agua.ToString();
+             StartCoroutine(escudo());
             Destroy(col.gameObject);
+           
+          
         }
 
         if (col.gameObject.tag == "Morte")
@@ -253,6 +261,26 @@ public class movimentoplayer : MonoBehaviour
         painelGameOver.SetActive(true);
     }
     #endregion
+
+    IEnumerator escudo()
+    {
+        escudoAgua.SetActive(true);
+
+        for (int i = 0; i < 6; i++)
+        {
+            partesPersonagem[i].layer = LayerMask.NameToLayer("escudo");
+        }
+        
+        yield return new WaitForSeconds(5f);
+
+        escudoAgua.SetActive(false);
+
+        for (int i=0; i<6; i++)
+        {
+            partesPersonagem[i].layer = LayerMask.NameToLayer("Default");
+        }
+     
+    }
 }
 
 

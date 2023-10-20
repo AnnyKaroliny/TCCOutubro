@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 105303473122627723}
   - component: {fileID: 4629723800715825248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Braco L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3628799275818674746}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: posicao1
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3628799275995488089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: posicao2
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 3628799276272365042}
   - component: {fileID: 3628799276272365041}
   - component: {fileID: 1438602024617270427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pizza
   m_TagString: inimigoR
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3628799277566436900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: posicao3
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6887505445808868276}
   - component: {fileID: 7987908246814798552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Perna L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4792779662839129382}
   - component: {fileID: 6461946312427610404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Corpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9006640060536938576}
   - component: {fileID: 1212523780183191702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Braco R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5958052088327102897}
   - component: {fileID: 5304932694405801693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Perna R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

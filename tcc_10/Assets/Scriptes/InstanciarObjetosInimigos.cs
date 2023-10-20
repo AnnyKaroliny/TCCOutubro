@@ -21,15 +21,17 @@ public class InstanciarObjetosInimigos : MonoBehaviour
         //InvokeRepeating("instMunicao1", 1, 1);
         //InvokeRepeating("instMunicao3", 1, 1);
         //InvokeRepeating("instMunicao2", 1, 1);
+
+        StartCoroutine(instMunicao());
     }
 
     // Update is called once per frame
     void Update()
     {
-        instMunicao1();
+        
     }
 
-    public void instMunicao1()
+   /* public void instMunicao1()
     {       
         if (delay <= Time.time)
         {
@@ -41,5 +43,23 @@ public class InstanciarObjetosInimigos : MonoBehaviour
 
             delay += Time.time;
         }
+        
+
+    }*/
+
+    IEnumerator instMunicao(){
+
+        yield return new WaitForSeconds(5f);
+        Instantiate(Municao1, posicaoMUnicao1.position, Quaternion.identity);
+
+        Instantiate(Municao3, posicaoMunicao3.position, Quaternion.identity);
+
+        Instantiate(Municao2, posicaoMusicao2.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(instMunicao());
+
+
     }
 }

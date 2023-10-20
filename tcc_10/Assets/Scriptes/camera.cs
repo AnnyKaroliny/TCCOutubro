@@ -25,6 +25,10 @@ public class camera : MonoBehaviour {
 
             smoothSpeed = 0.125f;
         }
+        else if(posicaoPlayer.position.y > LimiteCamera.position.y)
+        {
+
+        }
 
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
